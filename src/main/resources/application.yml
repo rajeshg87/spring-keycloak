@@ -1,0 +1,23 @@
+server:
+  port: 8085
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          userwebclient:
+            clientId: sample-app-client
+            clientSecret: fad7c34f-1aa5-494f-96a9-e69a9f8e558a
+            scope:
+              - openid
+              - profile
+            authorizationGrantType: authorization_code
+            redirectUri: http://localhost:8085/login/oauth2/code/userwebclient
+        provider:
+          userwebclient:
+            authorizationUri: http://localhost:8180/auth/realms/developer/protocol/openid-connect/auth
+            tokenUri: http://localhost:8180/auth/realms/developer/protocol/openid-connect/token
+            jwkSetUri: http://localhost:8180/auth/realms/developer/protocol/openid-connect/certs
+            userInfoUri: http://localhost:8180/auth/realms/developer/protocol/openid-connect/userinfo
+            userNameAttribute: preferred_username

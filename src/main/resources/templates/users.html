@@ -1,0 +1,25 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<h1>Uers page</h1>
+
+<div th:if="${users.empty}">
+    <div>No albums found</div>
+</div>
+
+<div th:each="user : ${users}">
+    <p>
+        <span th:text="${user.id}"></span>
+        <span th:text="${user.firstName}"></span>
+        <span th:text="${user.lastName}"></span>
+    </p>
+</div>
+</body>
+</html>
